@@ -16,6 +16,9 @@ body {
   height:100%;
   width:100%;
   margin:0;
+  background:url("../img/banner.jpg");
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 a {
@@ -23,7 +26,20 @@ a {
 }
 
 a:hover {
-  color: #C30083;
+  color: #0090DE;
+}
+
+.left {
+  float:left;
+}
+
+.right {
+  float:right;
+}
+
+.inner {
+  max-width:800px;
+  margin:0 auto;
 }
 
 header, footer {
@@ -34,18 +50,73 @@ header, footer {
   width:100%;
 }
 
+header {
+  z-index: 1;
+}
+
 header a, footer a {
   color:#FFF;
   font-weight: bold;
 }
 
+.landing {
+  height: calc(100% - 100px);
+  position:relative;
+  margin:25px auto;
+}
+.landing::before {
+  content:" ";
+  display:block;
+  padding-left:100%;
+}
+
 .logo {
-  float:left;
+  position:fixed;
+  top:25px;
+  height:100%;
+  width:100%;
+  left:50%;
+  z-index: 10;
+  border-radius: 100%;
+  text-indent:-500px;
+  overflow: hidden;
+  background: #FFF none repeat scroll 0% 0%;
+}
+
+.logo::before {
+  content: " ";
+  position: absolute;
+  background: transparent url("../img/banner.jpg") repeat scroll top left / cover;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  display: block;
+  top: 0;
+  left: 0;
+  filter: blur(8px);
+  opacity: 0.4;
+  margin-left: -6px;
+  margin-top: -6px;
+  background-attachment: fixed;
+}
+
+.logo::after {
+  content: " ";
+  display: block;
+  border-radius: 100%;
+  margin: 6px;
+  top:0;
+  left:0;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  background: transparent url("../img/logo.jpg") repeat scroll center center / cover;
+  position: absolute;
 }
 
 header nav {
-  float:right;
+  color: #0090DE;
 }
+
+
 nav a:hover::after {
   left: 10px;
   width: calc(100% - 20px);
@@ -55,9 +126,9 @@ nav a::after {
   width: 0%;
   position: absolute;
   left: 50%;
-  transition: 250ms all;
-  background: #C30083;
-  height: 2px;
+  transition: 250ms width, 250ms left;
+  border-bottom: solid 2px;
+  height: 0;
   top: 100%;
 }
 
@@ -65,7 +136,8 @@ nav a::before {
   content: "";
   position: absolute;
   border-style: solid;
-  border-color: #C30083 transparent transparent;
+  border-color: transparent;
+  border-top-color:unset;
   top: 100%;
   width: 0px;
   height: 0px;
@@ -75,7 +147,6 @@ nav a::before {
 }
 
 nav a:hover::before {
-  border-top-color:#C30083;
   border-width: 10px 10px 0 10px;
   left: calc(50% - 10px);
 }
@@ -89,12 +160,7 @@ nav a {
 
 .content {
   width:100%;
-  height:calc(100% - 100px);
-  background:url("../img/banner.jpg");
-  background-size: cover;
-  background-attachment: fixed;
   position:relative;
-  overflow-y:scroll;
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -123,4 +189,54 @@ nav a {
   color: transparent;
   width: calc(100% + 40px);
   margin: -20px;
+}
+
+@keyframes hide {
+  0% {
+    display:block;
+    opacity:1;
+  }
+  100% {
+    opacity:0.5;
+    overflow:hidden;
+  }
+}
+
+@keyframes show {
+  0% {
+    display:block;
+    opacity:0;
+  }
+  50% {
+    opacity:1;
+  }
+  100% {
+    display:none
+  }
+}
+
+@keyframes expand {
+  0% {
+  }
+  50% {
+  }
+  100% {
+    width:100%;
+  }
+}
+
+.expanded .container:not(.selected) {
+  animation:hide;
+  animation-duration:500ms;
+  animation-fill-mode:forwards;
+  width:0;
+  opacity:0;
+}
+
+.expanded .container.selected {
+  animation:expand;
+  animation-duration:1000ms;
+  animation-fill-mode:forwards;
+  opacity:1;
+  width:100%;
 }
