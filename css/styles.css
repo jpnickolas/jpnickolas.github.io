@@ -78,6 +78,7 @@ header a, footer a {
 
 .landing .inner {
   padding:25px;
+  position:relative;
 }
 
 .blur {
@@ -85,8 +86,8 @@ header a, footer a {
   box-shadow: 0 0 5px 0 #000;
   width: 100%;
   overflow: hidden;
-  position: relative;
-  min-height: calc(100% - 250px);
+  position: absolute;
+  height: calc(100% - 250px);
 }
 
 .blur::before {
