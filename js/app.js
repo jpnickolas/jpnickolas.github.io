@@ -3,6 +3,7 @@
   var $window = $(window);
 
   $document.ready(function () {
+    obfuscateEmail();
 
     /*** Expand the containers properly when clicked ***/
     $(".container").click(function () {
@@ -66,14 +67,32 @@
       logoDimensions = 150;
     }
 
-    if(logoDimensions > 350)
+    if(logoDimensions > 200)
     {
-      logoDimensions = 350;
+      logoDimensions = 200;
     }
 
     logo.width(logoDimensions + "px");
     logo.height(logoDimensions + "px");
     logo.css("margin-left", (-logoDimensions / 2) + "px");
+  }
+
+  function obfuscateEmail() {
+    $('a.obfuscate').each(function(i, element) {
+      elm = $(element);
+      var email = elm.prop("href");
+      email = email.replace(" (at) ", "@");
+      email = email.replace(" (dot) ", ".");
+      email = email.replace("%20(at)%20", "@");
+      email = email.replace("%20(dot)%20", ".");
+      elm.prop("href", email);
+      email = elm.text();
+      email = email.replace(" (at) ", "@");
+      email = email.replace(" (dot) ", ".");
+      email = email.replace("%20(at)%20", "@");
+      email = email.replace("%20(dot)%20", ".");
+      elm.text(email);
+    });
   }
 
 })();
