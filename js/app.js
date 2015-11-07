@@ -1,5 +1,6 @@
 (function() {
   var $document = $(document);
+  var $window = $(window);
 
   $document.ready(function () {
 
@@ -22,38 +23,44 @@
   });
 
   function resizeLogo() {
-    var landingHeight = $(".landing").height();
-    var logoDimensions = landingHeight;
-    if ($document.width() < logoDimensions) {
-      logoDimensions = $document.width();
+    var $landing = $(".landing");
+    var $header = $("header");
+    landingHeight = $landing.outerHeight(true);
+    headerHeight = $header.outerHeight(true);
+    screenHeight = $window.height();
+    logoDimensions = landingHeight;
+    scroll = $document.scrollTop();
+
+    if(scroll > landingHeight + headerHeight - screenHeight) {
+      if(scroll - landingHeight - headerHeight + screenHeight > screenHeight - 100) {
+        $header.css("bottom", (screenHeight - 100) + "px");
+      }
+      else {
+        $header.css("bottom", (scroll - landingHeight - headerHeight + screenHeight) + "px");
+      }
+    }
+    else {
+      $header.css("bottom", "0px");
     }
 
-    var scroll = $document.scrollTop();
+    if ($window.width() < logoDimensions) {
+      logoDimensions = $window.width();
+    }
 
     logoDimensions -= scroll;
 
     var logo = $(".logo");
 
-    if(logoDimensions < 0) {
+    if(logoDimensions < 100) {
       logo.css("top", -25 + "px");
     }
-    else if(logoDimensions < 50) {
-      logo.css("top", (logoDimensions - 25) + "px");
+    else if(logoDimensions < 150) {
+      logo.css("top", (logoDimensions - 125) + "px");
     }
     else {
       logo.css("top", "");
     }
 
-    if(logoDimensions < 0) {
-      $("header").css("position", "fixed");
-      $("header").css("top", "50px");
-      $(".landing").css("margin-bottom", "50px");
-    }
-    else {
-      $("header").css("position", "");
-      $("header").css("top", "");
-      $(".landing").css("margin-bottom", "");
-    }
 
     if(logoDimensions < 150) {
       logoDimensions = 150;

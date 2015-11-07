@@ -26,7 +26,7 @@ a {
 }
 
 a:hover {
-  color: #0090DE;
+  color: #F0A900;
 }
 
 .left {
@@ -51,7 +51,9 @@ header, footer {
 }
 
 header {
+  position:fixed;
   z-index: 1;
+  bottom:0;
 }
 
 header a, footer a {
@@ -60,10 +62,11 @@ header a, footer a {
 }
 
 .landing {
-  height: calc(100% - 100px);
   position:relative;
-  margin:25px auto;
+  min-height: calc(100% - 50px);
+  margin:25px auto 25px auto;
 }
+
 .landing::before {
   content:" ";
   display:block;
@@ -80,7 +83,7 @@ header a, footer a {
   border-radius: 100%;
   text-indent:-500px;
   overflow: hidden;
-  background: #FFF none repeat scroll 0% 0%;
+  background: #FFF none repeat scroll 0 0;
 }
 
 .logo::before {
@@ -123,7 +126,7 @@ nav a:hover::after {
 }
 nav a::after {
   content: "";
-  width: 0%;
+  width: 0;
   position: absolute;
   left: 50%;
   transition: 250ms width, 250ms left;
@@ -139,8 +142,8 @@ nav a::before {
   border-color: transparent;
   border-top-color:unset;
   top: 100%;
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   border-width:10px 0 0 0;
   left:50%;
   /*transition:250ms all linear;*/
@@ -165,6 +168,7 @@ nav a {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: stretch;
+  margin-top:75px;
 }
 
 .container {
@@ -172,11 +176,10 @@ nav a {
   height: 400px;
   width: 300px;
   transition: all 500ms ease 0s;
-  background: #FFF none repeat scroll 0% 0%;
+  background: #FFF none repeat scroll 0 0;
   border-radius: 25px;
   overflow: hidden;
-  box-shadow: 0px 0px 2px 0px #666;
-  flex-basis:auto;
+  box-shadow: 0 0 2px 0 #666;
   flex:auto 1;
 }
 .container::before {
@@ -184,7 +187,7 @@ nav a {
   display: block;
   height: calc(100% + 40px);
   opacity: 0.6;
-  background: transparent url("../img/banner.jpg") repeat fixed 0% 0% / cover;
+  background: transparent url("../img/banner.jpg") repeat fixed 0 0 / cover;
   filter: blur(8px);
   color: transparent;
   width: calc(100% + 40px);
