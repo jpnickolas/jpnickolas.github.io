@@ -11,9 +11,11 @@
       container.toggleClass("selected");
       if (container.hasClass("selected")) {
         container.parent().addClass("expanded");
+        container.parent().parent().addClass("expanded");
       }
       else {
         container.parent().removeClass("expanded");
+        container.parent().parent().removeClass("expanded");
       }
     });
 
@@ -81,16 +83,12 @@
     $('a.obfuscate').each(function(i, element) {
       elm = $(element);
       var email = elm.prop("href");
-      email = email.replace(" (at) ", "@");
-      email = email.replace(" (dot) ", ".");
-      email = email.replace("%20(at)%20", "@");
-      email = email.replace("%20(dot)%20", ".");
+      email = email.replace("(at)", "@");
+      email = email.replace("(dot)", ".");
       elm.prop("href", email);
       email = elm.text();
-      email = email.replace(" (at) ", "@");
-      email = email.replace(" (dot) ", ".");
-      email = email.replace("%20(at)%20", "@");
-      email = email.replace("%20(dot)%20", ".");
+      email = email.replace("(at)","@");
+      email = email.replace("(dot)",".");
       elm.text(email);
     });
   }
