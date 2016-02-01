@@ -74,6 +74,7 @@ header a, footer a {
   width:100%;
   color:#FFF;
   text-shadow: 0 0 5px #000;
+  padding-bottom:50px;
 }
 
 .landing a {
@@ -131,9 +132,9 @@ header a, footer a {
 .logo {
   position:fixed;
   top:25px;
-  height:100%;
-  width:100%;
-  left:50%;
+  height:200px;
+  width:200px;
+  left:calc(50% - 100px);
   z-index: 10;
   border-radius: 100%;
   text-indent:-500px;
@@ -172,24 +173,23 @@ header a, footer a {
 
 .nav {
   color: #0090DE;
-  width:calc(50% - 75px);
+  width:100%;
   margin:0;
   padding:0;
+  display:table;
 }
 
 .nav li {
   padding: 0;
   margin:0;
-  float:left;
-  width:50%;
   text-align:center;
   list-style-type:none;
-  display:block;
+  display:table-cell;
 }
 
 .nav a {
   position: relative;
-  padding: 2px 10px;
+  padding: 2px 20px;
   display: inline-block;
   color:#FFF;
 }
@@ -228,100 +228,3 @@ header a, footer a {
   left: calc(50% - 10px);
 }
 
-.content {
-  width:100%;
-  position:relative;
-  padding:75px 25px 25px;
-  text-align:center;
-}
-
-.content .column {
-  display:flex;
-  flex-direction: column;
-  display:inline-block;
-  transition: all 500ms ease 0s;
-  width:300px;
-  margin:0 25px;
-
-}
-
-.content .column.expanded {
-  width:calc(100% - 10px);
-  margin:0;
-}
-
-.container {
-  margin: 25px 0;
-  height: 400px;
-  width: 300px;
-  transition: all 500ms ease 0s;
-  background: #FFF none repeat scroll 0 0;
-  border-radius: 25px;
-  overflow: hidden;
-  box-shadow: 0 0 2px 0 #666;
-}
-.container::before {
-  content: " ";
-  display: block;
-  height: calc(100% + 40px);
-  opacity: 0.6;
-  background: transparent url("../img/banner.jpg") repeat fixed 0 0 / cover;
-  filter: blur(8px);
-  color: transparent;
-  width: calc(100% + 40px);
-  margin: -20px;
-}
-
-@keyframes hide {
-  0% {
-    display:block;
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-    overflow:hidden;
-  }
-}
-
-@keyframes show {
-  0% {
-  }
-  50% {
-    opacity:initial;
-  }
-  100% {
-    opacity:1;
-  }
-}
-
-@keyframes expand {
-  0% {
-  }
-  50% {
-  }
-  100% {
-    width:100%;
-  }
-}
-
-.expanded .column:not(.expanded) {
-  width:0;
-}
-
-.expanded .container:not(.selected) {
-  animation:hide;
-  animation-duration:500ms;
-  animation-fill-mode:forwards;
-  width:0;
-  opacity:0;
-  height:0;
-  margin:0;
-}
-
-.expanded .container.selected {
-  animation-duration:1000ms;
-  animation:expand;
-  animation-fill-mode:forwards;
-  opacity:1;
-  width:100%;
-}
