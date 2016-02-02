@@ -47,7 +47,7 @@ a:hover,.nav a:hover {
   margin:0 auto;
 }
 
-header, footer {
+footer {
   padding:15px;
   background:#202020;
   color:#FFF;
@@ -55,7 +55,7 @@ header, footer {
   width:100%;
 }
 
-header {
+footer {
   position:fixed;
   z-index: 1;
   bottom:0;
@@ -84,7 +84,6 @@ header a, footer a {
 
 .landing .inner {
   padding:25px;
-  padding-top:250px;
   position:relative;
 }
 
@@ -129,17 +128,20 @@ header a, footer a {
   background:#FFF;
 }
 
+header {
+  text-align:center;
+}
+
 .logo {
-  position:fixed;
-  top:25px;
   height:200px;
   width:200px;
-  left:calc(50% - 100px);
   z-index: 10;
   border-radius: 100%;
   text-indent:-500px;
   overflow: hidden;
   background:#FF60BA;
+  display:inline-block;
+  position:relative;
 }
 
 .logo::before {
