@@ -230,3 +230,13 @@ header {
   left: calc(50% - 10px);
 }
 
+@media (max-width: 675px) {
+  .landing .separator {
+    display:none;
+  }
+
+  .landing .right, .landing .left {
+    float:left;
+    clear:both;
+  }
+}
