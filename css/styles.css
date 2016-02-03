@@ -20,6 +20,10 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+  
+p {
+  text-align:justify;
+}
 
 a {
   text-decoration: none;
@@ -40,6 +44,10 @@ a:hover,.nav a:hover {
 .clear {
   clear:both;
   overflow:hidden;
+}
+
+.center {
+  text-align:center;
 }
 
 .inner {
@@ -83,7 +91,7 @@ header a, footer a {
 }
 
 .landing .inner {
-  padding:25px;
+  padding:0 25px 25px 25px;
   position:relative;
 }
 
@@ -104,13 +112,19 @@ header a, footer a {
   background: transparent url("../img/banner.jpg") repeat fixed 0 0 / cover;
 }
 
-.landing .clear {
+.banner.clear {
   position:relative;
   overflow:hidden;
   background:rgba(0,0,0,0.2);
   box-shadow:0 0 2px 0 rgba(0,0,0,0.3);
-  padding:10px 25px;
   border-radius:8px;
+  padding:10px 0;
+  margin-top:50px;
+}
+
+.banner .left, .banner .right {
+  width:50%;
+  padding:0 25px;
 }
 
 .landing .separator {
@@ -133,6 +147,7 @@ header a, footer a {
 
 header {
   text-align:center;
+  margin-bottom:-10px;
 }
 
 .logo {
