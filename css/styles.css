@@ -46,13 +46,16 @@ a:hover,.nav a:hover {
   overflow:hidden;
 }
 
-.center {
+.tagline {
   text-align:center;
+  margin-bottom:50px;
+  margin-top:5px;
 }
 
 .inner {
   max-width:800px;
   margin:0 auto;
+  overflow:hidden;
 }
 
 footer {
@@ -82,7 +85,8 @@ header a, footer a {
   width:100%;
   color:#FFF;
   text-shadow: 0 0 5px #000;
-  padding-bottom:25px;
+  padding-bottom:30px;
+  overflow:hidden;
 }
 
 .landing a {
@@ -106,20 +110,19 @@ header a, footer a {
   content: " ";
   position: absolute;
   width: 100%;
-  filter: blur(8px);
   height: calc(100% + 50px);
   top: -10px;
-  background: transparent url("../img/banner.jpg") repeat fixed 0 0 / cover;
+  background: transparent url("../img/banner_blur.jpg") repeat fixed 0 0 / cover;
 }
 
-.banner.clear {
+.banner {
   position:relative;
   overflow:hidden;
   background:rgba(0,0,0,0.2);
   box-shadow:0 0 2px 0 rgba(0,0,0,0.3);
   border-radius:8px;
   padding:10px 0;
-  margin-top:50px;
+  clear:both;
 }
 
 .banner .left, .banner .right {
@@ -147,7 +150,6 @@ header a, footer a {
 
 header {
   text-align:center;
-  margin-bottom:-10px;
 }
 
 .logo {
@@ -166,13 +168,12 @@ header {
 .logo::before {
   content: " ";
   position: absolute;
-  background: transparent url("../img/banner.jpg") repeat scroll top left / cover;
+  background: transparent url("../img/banner_blur.jpg") repeat scroll top left / cover;
   width: calc(100% + 10px);
   height: calc(100% + 10px);
   display: block;
   top: 0;
   left: 0;
-  filter: blur(8px);
   opacity: 0.8;
   margin-left: -6px;
   margin-top: -6px;
@@ -254,8 +255,25 @@ header {
     display:none;
   }
 
-  .landing .right, .landing .left {
+  .banner .right, .banner .left {
     float:left;
     clear:both;
+    width:100%;
+  }
+  
+  .banner {
+    width:50%;
+    clear:left;
+    float:left;
+    margin-right:25px;
+  }
+}
+
+@media (max-width:550px) {
+  .banner {
+    clear:both;
+    width:100%;
+    margin-right:0;
+    float:none;
   }
 }
