@@ -87,6 +87,13 @@ header a, footer a {
   position:relative;
 }
 
+.landing .clear {
+  background:rgba(0,0,0,0.2);
+  box-shadow:0 0 2px 0 rgba(0,0,0,0.3);
+  padding:10px 25px;
+  border-radius:8px;
+}
+
 .blur {
   width: 100%;
   overflow: hidden;
