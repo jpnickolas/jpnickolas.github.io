@@ -64,13 +64,14 @@ footer {
   color:#FFF;
   height:50px;
   width:100%;
-}
-
-footer {
   position:fixed;
   z-index: 1;
   bottom:0;
   box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
+}
+
+footer .inner {
+  overflow:visible;
 }
 
 header a, footer a {
@@ -227,7 +228,7 @@ header {
   width: 100%;
 }
 .nav a::after {
-  content: "";
+  content: " ";
   width: 0;
   position: absolute;
   left: 50%;
@@ -238,7 +239,7 @@ header {
 }
 
 .nav a::before {
-  content: "";
+  content: " ";
   position: absolute;
   border-style: solid;
   border-color: transparent;
