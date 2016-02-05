@@ -29,7 +29,7 @@ a {
   text-decoration: none;
 }
 
-a:hover,.nav a:hover {
+a:hover,.nav a:hover, .landing a:hover {
   color: #69B739;
 }
 
