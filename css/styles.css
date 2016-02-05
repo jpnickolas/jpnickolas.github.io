@@ -193,9 +193,11 @@ header {
   position: absolute;
 }
 
+/*
 .logo:hover::after {
   background: transparent url("../img/oops.jpg") repeat scroll center center / cover;
 }
+*/
 
 .nav {
   color: #0090DE;
