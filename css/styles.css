@@ -30,7 +30,7 @@ a {
 }
 
 a:hover,.nav a:hover, .landing a:hover {
-  color: #69B739;
+  color: #FFCB4D;
 }
 
 .left {
@@ -44,12 +44,12 @@ a:hover,.nav a:hover, .landing a:hover {
 .clear {
   clear:both;
   overflow:hidden;
+  position:relative;
 }
 
 .tagline {
   text-align:center;
-  margin-bottom:50px;
-  margin-top:5px;
+  margin:0 0 10px 0;
 }
 
 .inner {
@@ -100,20 +100,16 @@ header a, footer a {
   position:relative;
 }
 
-.blur {
-  width: 100%;
-  overflow: hidden;
-  position: absolute;
-  height: 100%;
-}
-
 .blur::before {
   content: " ";
   position: absolute;
   width: 100%;
-  height: calc(100% + 50px);
-  top: -10px;
+  height: 100%;
   background: transparent url("../img/banner_blur.jpg") repeat fixed 0 0 / cover;
+  left:0;
+  top:0;
+  opacity:0.9; /* fixes a bug in firefox: border radius hates bg-attach fixed */
+
 }
 
 .banner {
@@ -122,13 +118,23 @@ header a, footer a {
   background:rgba(0,0,0,0.2);
   box-shadow:0 0 2px 0 rgba(0,0,0,0.3);
   border-radius:8px;
-  padding:10px 0;
+  padding:0;
   clear:both;
+  border-left:4px solid #eaab65;
+  border-right:4px solid #eaab65;
+}
+
+.banner .inner {
+  padding:10px 25px;
+  background:rgba(122, 122, 122, 0.3);
 }
 
 .banner .left, .banner .right {
   width:50%;
-  padding:0 25px;
+}
+
+.banner .right {
+  padding-left:25px;
 }
 
 .landing .separator {
@@ -155,13 +161,15 @@ header {
 
 .logo {
   margin-top:25px;
+  margin-bottom:50px;
   height:200px;
   width:200px;
   z-index: 10;
   border-radius: 100%;
   text-indent:-500px;
   overflow: hidden;
-  background:#FF60BA;
+  background:#838383;
+  border:4px solid rgba(255, 183, 75, 0.5);
   display:inline-block;
   position:relative;
 }
@@ -169,15 +177,13 @@ header {
 .logo::before {
   content: " ";
   position: absolute;
+  width:100%;
+  height:100%;
   background: transparent url("../img/banner_blur.jpg") repeat scroll top left / cover;
-  width: calc(100% + 10px);
-  height: calc(100% + 10px);
   display: block;
   top: 0;
   left: 0;
   opacity: 0.8;
-  margin-left: -6px;
-  margin-top: -6px;
   background-attachment: fixed;
 }
 
@@ -185,20 +191,13 @@ header {
   content: " ";
   display: block;
   border-radius: 100%;
-  margin: 6px;
   top:0;
   left:0;
-  width: calc(100% - 12px);
-  height: calc(100% - 12px);
-  background: transparent url("../img/logo.jpg") repeat scroll center center / cover;
+  background: transparent url("../img/logo.png") repeat scroll center center / cover;
+  width:100%;
+  height:100%;
   position: absolute;
 }
-
-/*
-.logo:hover::after {
-  background: transparent url("../img/oops.jpg") repeat scroll center center / cover;
-}
-*/
 
 .nav {
   color: #0090DE;
@@ -257,26 +256,18 @@ header {
   left: calc(50% - 10px);
 }
 
-@media (max-width: 675px) {
+@media (max-width:550px) {
   .landing .separator {
     display:none;
   }
-
+  
   .banner .right, .banner .left {
     float:left;
     clear:both;
     width:100%;
   }
   
-  .banner {
-    width:50%;
-    clear:left;
-    float:left;
-    margin-right:25px;
-  }
-}
 
-@media (max-width:550px) {
   .banner {
     clear:both;
     width:100%;
