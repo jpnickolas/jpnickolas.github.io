@@ -267,6 +267,9 @@ header {
     width:100%;
   }
   
+  .banner .right {
+    padding-left:0;
+  }
 
   .banner {
     clear:both;
