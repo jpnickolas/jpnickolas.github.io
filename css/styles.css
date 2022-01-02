@@ -2,6 +2,18 @@
  * Created by Nick Hilton on 11/3/2015.
  */
 
+ @font-face {
+  font-family: doodle-font;
+  src: url(font.ttf);
+}
+
+.title {
+  font-family: doodle-font;
+  color: #FFCB4D;
+  text-align: center;
+  font-size: 48px;
+}
+
 * {
   box-sizing:border-box;
 }
@@ -33,20 +45,6 @@ a:hover,.nav a:hover, .landing a:hover {
   color: #FFCB4D;
 }
 
-.left {
-  float:left;
-}
-
-.right {
-  float:right;
-}
-
-.clear {
-  clear:both;
-  overflow:hidden;
-  position:relative;
-}
-
 .tagline {
   text-align:center;
   margin:0 0 10px 0;
@@ -59,14 +57,11 @@ a:hover,.nav a:hover, .landing a:hover {
 }
 
 footer {
+  flex-shrink: 0;
   padding:15px;
   background:#202020;
   color:#FFF;
   height:50px;
-  width:100%;
-  position:fixed;
-  z-index: 1;
-  bottom:0;
   box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
 }
 
@@ -80,14 +75,20 @@ header a, footer a {
 }
 
 .landing {
-  position:relative;
-  min-height: calc(100% - 50px);
-  margin:0 auto;
-  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  flex-shrink: 1;
   color:#FFF;
   text-shadow: 0 0 5px #000;
-  padding-bottom:50px;
-  overflow:hidden;
+  overflow:auto;
+}
+
+#bg-effects {
+  position: fixed;
+  width: 100vw;
+  height: calc(100vh - 50px);
 }
 
 .landing a {
@@ -95,33 +96,24 @@ header a, footer a {
   text-decoration:underline;
 }
 
-.landing .inner {
-  padding:0 25px 25px 25px;
-  position:relative;
-}
-
-.blur::before {
-  content: " ";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: transparent url("../img/banner_blur.jpg") repeat fixed 0 0 / cover;
-  left:0;
-  top:0;
-  opacity:0.9; /* fixes a bug in firefox: border radius hates bg-attach fixed */
-
+.content {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
 }
 
 .banner {
-  position:relative;
+  align-self: center;
+  justify-self: center;
   overflow:hidden;
   background:rgba(0,0,0,0.2);
   box-shadow:0 0 2px 0 rgba(0,0,0,0.3);
   border-radius:8px;
   padding:0;
-  clear:both;
   border-left:4px solid #eaab65;
   border-right:4px solid #eaab65;
+  backdrop-filter: blur(5px);
 }
 
 .banner .inner {
@@ -157,46 +149,6 @@ header a, footer a {
 
 header {
   text-align:center;
-}
-
-.logo {
-  margin-top:25px;
-  margin-bottom:50px;
-  height:200px;
-  width:200px;
-  z-index: 10;
-  border-radius: 100%;
-  text-indent:-500px;
-  overflow: hidden;
-  background:#838383;
-  border:4px solid rgba(255, 183, 75, 0.5);
-  display:inline-block;
-  position:relative;
-}
-
-.logo::before {
-  content: " ";
-  position: absolute;
-  width:100%;
-  height:100%;
-  background: transparent url("../img/banner_blur.jpg") repeat scroll top left / cover;
-  display: block;
-  top: 0;
-  left: 0;
-  opacity: 0.8;
-  background-attachment: fixed;
-}
-
-.logo::after {
-  content: " ";
-  display: block;
-  border-radius: 100%;
-  top:0;
-  left:0;
-  background: transparent url("../img/logo.png") repeat scroll center center / cover;
-  width:100%;
-  height:100%;
-  position: absolute;
 }
 
 .nav {
