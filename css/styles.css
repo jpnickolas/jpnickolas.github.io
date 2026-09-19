@@ -122,6 +122,7 @@ footer a {
   height: calc(100vh - 50px);
   z-index: -1;
   pointer-events: none;
+  top: 0;
 }
 
 .portfolio-banner {
